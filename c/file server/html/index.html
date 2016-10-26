@@ -1,0 +1,60 @@
+<HTML>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>小型文件管理系统</title>
+
+<style type="text/css">
+div#all{width:100%}
+div#rightc{height:150px;width:40%;float:left}
+div#rightu{height:150px;width:40%;float:left}
+div#rightd{height:150px;width:40%;float:left}
+div#list{height:100%;width:60%;float:left}
+</style>
+
+</head>
+
+<BODY>
+<div id="all">
+
+  <div id="list">
+    <h4 align="center">文件列表:</h4>
+    <iframe src="/cgi/list.cgi" width=90% height=100% frameborder="0" name="iframe_a">
+    </iframe>
+    </div>
+
+  <div id="rightd">
+    <h4>文件下载：</h4>
+      <form action="/cgi/download.cgi" method="post" ENCTYPE="multipart/form-data">
+       <p>请输入要下载的文件名:<input type="text" name="filename"/></p>
+       <input type="reset" value="重置"/>
+       <input type="submit" value="确定" />
+       </form>
+       <br/>
+     </div>
+
+  <div id="rightc">
+    <h4>文件删除：</h4>
+      <form action="/cgi/remove.cgi" method="post" ENCTYPE="multipart/form-data">
+        <p>请输入要删除的文件名:<input type="text" name="filename"/></p>
+        <input type="reset" value="重置"/>
+        <input type="submit" value="确定" />
+        </form>
+        <br/>
+        </div>
+
+  <div id="rightu">
+    <h4>文件上传：</h4>
+     <form action="/cgi/upload.cgi" method="post" ENCTYPE="multipart/form-data">
+       <p>请输入要上传的文件名: <input type="file" name="filename" /></p>
+       <input type="reset" value="重置" />
+       <input type="submit" value="确定" />
+       </FORM>
+       <br/>
+       </div>
+
+</div>
+
+</BODY>
+</HTML> 
