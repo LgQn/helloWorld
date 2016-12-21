@@ -57,7 +57,7 @@ exit 1
 #       -s filename 当文件存在并且文件大小大于0时返回真
 #       -S filename 当文件存在并且是socket时返回真
 #       -t fd       当fd是与终端设备相关联的文件描述符时返回真
-#       -d pathname 当路径存在并且时一个目录时返回真
+#       -d pathname 当路径存在并且是一个目录时返回真
 #       -e pathname 当由路径指定的文件或目录存在时返回真
 #       -g pathname 当由路径指定的文件或目录存在并且设置了SGID位时返回真
 #       -k pathname 当由路径指定的文件或目录存在并且设置了“粘滞”位时返回真

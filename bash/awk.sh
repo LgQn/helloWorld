@@ -14,20 +14,22 @@ awk  -F ':'  'BEGIN {print "name,shell"}  {print $1","$7} END {print "blue,/bin/
 # 添加列名 name，shell  最后一行添加 blue，/bin/nosh
 # 先执行begin，读入文件输出，最后执行end
 
+awk -F ':' '{gsub(/abc/,"a",$2);print $2}'
+# 使用分隔符进行分隔，使用gsub对$2进行字符串替换，打印$2
+# gsub 全局替换，将符合正则表达式的字符串段使用第二参数进行替换
+# sub 只替换第一次符合的字符串
+# 第三参数 缺省则对所有变量进行替换
 
- awk -F ':' '/root/{print $7}' /etc/passwd
-# pattern 为root， action 为{print $7}
-# 搜索支持正则表达式： '/^root/'   以root开头
 
+#eg:
+#   1)#统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:
+#   awk  -F ':'  '{print "filename:" FILENAME ",linenumber:" NR ",columns:" NF ",linecontent:"$0}' /etc/passwd
+#   awk  -F ':'  '{printf("filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n",FILENAME,NR,NF,$0)}' /etc/passwd
+#   filename:/etc/passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:/root:/bin/bash
+#   filename:/etc/passwd,linenumber:2,columns:7,linecontent:daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+#   filename:/etc/passwd,linenumber:3,columns:7,linecontent:bin:x:2:2:bin:/bin:/bin/sh
+#   filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/sh
 
-
-#统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容:
-#awk  -F ':'  '{print "filename:" FILENAME ",linenumber:" NR ",columns:" NF ",linecontent:"$0}' /etc/passwd
-#awk  -F ':'  '{printf("filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n",FILENAME,NR,NF,$0)}' /etc/passwd
-filename:/etc/passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:/root:/bin/bash
-filename:/etc/passwd,linenumber:2,columns:7,linecontent:daemon:x:1:1:daemon:/usr/sbin:/bin/sh
-filename:/etc/passwd,linenumber:3,columns:7,linecontent:bin:x:2:2:bin:/bin:/bin/sh
-filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/sh
 
 #ARGC               命令行参数个数
 #ARGV               命令行参数排列
@@ -44,7 +46,9 @@ filename:/etc/passwd,linenumber:4,columns:7,linecontent:sys:x:3:3:sys:/dev:/bin/
 
 #   http://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html
 
-
+#awk -F ':' '/root/{print $7}' /etc/passwd
+# pattern 为root， action 为{print $7}
+# 搜索支持正则表达式： '/^root/'   以root开头
 
 
 
