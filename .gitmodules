@@ -1,0 +1,3 @@
+[submodule "gitForLearn/webui-aria2"]
+	path = gitForLearn/webui-aria2
+	url = https://github.com/ghostry/webui-aria2
