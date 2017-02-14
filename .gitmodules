@@ -1,3 +1,6 @@
 [submodule "gitForLearn/webui-aria2"]
 	path = gitForLearn/webui-aria2
 	url = https://github.com/ghostry/webui-aria2
+[submodule "gitForLearn/reactjs/react-tutorial"]
+	path = gitForLearn/reactjs/react-tutorial
+	url = https://github.com/reactjs/react-tutorial.git
