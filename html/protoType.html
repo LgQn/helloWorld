@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <script>
+
+//prototype:返回对象类型原型的引用
+//
+
+function test1(){//object 构造函数
+    this.a = 1;
+    this.b = 2;
+    this.c = function(){
+        console.log("c");
+    };
+}
+test1.prototype.fun1 = function(){
+    console.log("fun1");
+}
+test1.d = function(){
+    console.log("d");
+}
+test1.d();
+console.log(test1.prototype);  //object{}
+console.log(test1.__proto__);  //function(){}
+//prototype:一个object对象的实例（空对象） 
+//proto:构造函数名称，原型时空对象
+
+
+var test2 = new test1();//实例对象
+console.log(test2);
+//test2.prototype = new test1();
+console.log(test2.prototype); //undefined
+console.log(test2.__proto__); //object{ fun1:function(){} }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</html>
